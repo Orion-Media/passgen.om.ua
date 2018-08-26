@@ -4,15 +4,17 @@
     <title>Генератор паролей - Орион-Медиа</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://lib.om.ua/2c57704d.css">
+    <link rel="stylesheet" href="/1e2f568d.css">
 </head>
 <body ng-app="app" ng-controller="controller" ng-cloak layout="row">
 
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="2" md-is-locked-open="isLockedOpenSidenav()" style="overflow-x: hidden;">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="2" style="overflow-x: hidden;" md-is-locked-open="isLockedOpenSidenav()">
         <a href="https://om.ua">
-            <img src="https://static.om.ua/om-logo.svg" class="m-md" width="280" alt="" />
+            <img src="https://lib.om.ua/om-logo.svg" class="m-md" width="280" alt="" />
         </a>
         <md-content layout="column" style="overflow-x: hidden;">
             <md-button class="md-primary nowrap t-l m-none p-l-md" ng-href="https://ipcalc.om.ua">
@@ -33,11 +35,41 @@
             <h2 layout-margin>Генератор паролей</h2>
         </md-toolbar>
 
-        <md-content layout="column" layout-padding class="md-background md-hue-2">
+        <md-content layout-padding class="md-background md-hue-2">
 
-            <div class="app m-t-md m-b-md p-md" md-whiteframe="1" md-colors="{ background: 'grey-A100' }">
+            <div id="content" class="app m-t-md m-b-md p-md" md-whiteframe="1" md-colors="{ background: 'grey-A100' }">
 
-                <h1>В разработке...</h1>
+<div layout="column">
+    <md-checkbox class="md-primary" ng-model="input.digits">
+        Цифры 0...9
+    </md-checkbox>
+    <md-checkbox class="md-primary" ng-model="input.low">
+        Буквы в нижнем регистре a...z
+    </md-checkbox>
+    <md-checkbox class="md-primary" ng-model="input.high">
+        Буквы в верхнем регистре A...Z
+    </md-checkbox>
+    <md-checkbox class="md-primary" ng-model="input.special">
+        Спецсимволы ( ) [ ] { } _ = + - * / ! | ? ^ @ & : ; % $ , .
+    </md-checkbox>
+    <md-slider-container layout="row">
+        <span style="max-width: none;">Длина пароля</span>
+        <md-slider class="md-primary" ng-model="input.len" step="1" min="2" max="32"></md-slider>
+        <md-input-container class="md-block">
+            <input type="number" min="2" max="32" ng-model="input.len">
+        </md-input-container>
+    </md-slider-container>
+</div>
+
+<div layout="row" layout-align="center">
+    <md-button class="md-raised md-primary" ng-click="generate()">
+        Сгенерировать
+    </md-button>
+</div>
+
+<div layout="column" layout-align="center center" class="p-t-sm">
+    <div class="m-t-xs" ng-repeat="password in output">{{password}}</div>
+</div>
 
             </div>
 
@@ -52,14 +84,17 @@
     </div>
 
     <!-- Angular Material requires Angular.js Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular-resource.min.js"></script>
     <!-- Angular Material Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.js"></script>
+    <!-- API  -->
+    <script src="https://lib.om.ua/36d7fa19.js"></script>
     <!-- Application  -->
-    <script src="app.js"></script>
+    <script src="/7396e020.js"></script>
 
 </body>
 </html>
