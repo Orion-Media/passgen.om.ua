@@ -1,0 +1,31 @@
+<div layout="column">
+    <md-checkbox class="md-primary" ng-model="input.digits">
+        Цифры 0...9
+    </md-checkbox>
+    <md-checkbox class="md-primary" ng-model="input.low">
+        Буквы в нижнем регистре a...z
+    </md-checkbox>
+    <md-checkbox class="md-primary" ng-model="input.high">
+        Буквы в верхнем регистре A...Z
+    </md-checkbox>
+    <md-checkbox class="md-primary" ng-model="input.special">
+        Спецсимволы ( ) [ ] { } _ = + - * / ! | ? ^ @ & : ; % $ , .
+    </md-checkbox>
+    <md-slider-container layout="row">
+        <span style="max-width: none;">Длина пароля</span>
+        <md-slider class="md-primary" ng-model="input.len" step="1" min="2" max="32"></md-slider>
+        <md-input-container class="md-block">
+            <input type="number" min="2" max="32" ng-model="input.len">
+        </md-input-container>
+    </md-slider-container>
+</div>
+
+<div layout="row" layout-align="center">
+    <md-button class="md-raised md-primary" ng-click="generate()">
+        Сгенерировать
+    </md-button>
+</div>
+
+<div layout="column" layout-align="center center" class="p-t-sm">
+    <div class="m-t-xs" ng-repeat="password in output">{{password}}</div>
+</div>
