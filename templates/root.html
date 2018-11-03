@@ -9,10 +9,12 @@
         Буквы в верхнем регистре A...Z
     </md-checkbox>
     <md-checkbox class="md-primary" ng-model="input.special">
-        Спецсимволы ( ) [ ] { } _ = + - * / ! | ? ^ @ & : ; % $ , .
+        Спецсимволы ( ) [ ] { } _ = + - * / ! | ?
+        <span hide-xs>^ @ & : ; % $ , .</span>
+        <span hide-gt-xs>&hellip;</span>
     </md-checkbox>
     <md-slider-container layout="row">
-        <span style="max-width: none;">Длина пароля</span>
+        <span style="max-width: none;">Длина <br hide-gt-xs>пароля</span>
         <md-slider class="md-primary" ng-model="input.len" step="1" min="2" max="32"></md-slider>
         <md-input-container class="md-block">
             <input type="number" min="2" max="32" ng-model="input.len">
